@@ -1,0 +1,51 @@
+//
+//  Assignment 6 Chapter 2
+//  Speed of sound
+//  This is designed to input a starting and ending tempature, and get the speed of sound in the range between the two
+//  Created by Sadmin on 7/2/17.
+//  Copyright © 2017 Probe Team. All rights reserved.
+//
+/* Program Design
+Input
+The user will input a temp in C to begin outputting speed in sound, and then enter a second temp in C to stop outputting the speed in sound.
+The input will be validated as a whole number integer.
+Pseudocode: Briefly explain how this section will look like
+
+
+Processing
+The speed in meters per second of sound based on the tempature. I calculated this by applying a constant (TEMP_TO_VELOCITY) to starting_temp and added +1 to the tempature to calucalte during each loop. Loop is limited by comparing the first and second number and setting the loop interval to the value.
+
+
+Output
+Program will output a list of tempatures in the range and the value of the speed of sound for that tempature.
+
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double starting_temp_c = 0, ending_temp_c = 0;
+    int loop = 0;
+    const double TEMP_TO_VELOCITY = (331.3 + 0.61);
+    cout << "This program will calculate the speed of sound within a range of temperatures.\n";
+    cout << "Please input the tempature in celsius to start the range as a whole number\n";
+    cin >> starting_temp_c;
+    cout << "You input \0"; cout << starting_temp_c; cout << "\n Please input the tempature in celcius to end the range.\n";
+    cin >> ending_temp_c;
+    cout << "Your range starts at \0"; cout << starting_temp_c; cout << " and ends with \0"; cout << ending_temp_c; cout << ".\n";
+
+    loop = (ending_temp_c - starting_temp_c);
+    while (loop > -1){
+        cout << "At \0"; cout << starting_temp_c; cout << " degrees Celsius, the velocity of sound is \0";
+        cout << (starting_temp_c * TEMP_TO_VELOCITY); cout << " meters per second \n \n";
+        (starting_temp_c = starting_temp_c + 1);
+        (loop = loop -1);
+        
+    }
+    cout << "done.";
+    
+    return 0;
+}
