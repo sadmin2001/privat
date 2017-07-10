@@ -1,0 +1,82 @@
+//
+//  main.cpp
+//  Pre test study July 10th
+// Program 4, page 247 chapter 4
+//  Created by Sadmin on 7/10/17.
+//  Copyright © 2017 Probe Team. All rights reserved.
+/* Program to input uder height, weight, and age to output clothing size
+ Pseudocode:
+ Input: Heigh, Weight, Age
+ Process: 
+ Hat size ((Weight / Height) * 2.9 )
+ Jacket Size (H * W) / 288 ) + ((1/8)*(a - 30))
+ Waist Inches (Weight / 5.7) + ((1/10) * ((a-28) / 2) 
+ Output "Your hat size is hat_size"
+ "Your jacket size is jacket_size"
+ "Your waist size is waist_size"
+ "Would you like to go again?"
+ 
+ Additional notes:
+ Removed hard coded numbers
+ */
+
+#include <iostream>
+using namespace std;
+int height = 0, age = 0, weight = 0, final_hat = 0, final_jacket = 0, final_waist = 0;
+int hat_size(int weight, int height);
+int jacket_size(int height, int wieght, int age);
+int waist_size(int height, int wieght, int age);
+bool go_again = true;
+char again_response;
+const double HAT_CALC = 2.9, JACKET_DIVIDER = 288, JACKET_SUBTRACTOR = 30, WAIST_DIVIDER = 5.7, WAIST_SUBTRACTOR = 28, WAIST_FINAL_DIVIDE = 2, JACKET_ADJUSTOR = (1/8), WAIST_ADJUSTOR = (1/10);
+
+int main() {
+    // insert code here...
+    
+    while ((go_again = true)){
+        go_again = false;
+    cout << "Please input your age.\n";
+    cin >> age;
+    cout << "Please input your weight in pounds\n";
+    cin >> weight;
+    cout << "Please input your height in inches\n";
+    cin >> height;
+    final_hat = hat_size(weight, height);
+    final_jacket = jacket_size(height, weight, age);
+    final_waist = waist_size(height, weight, age);
+        cout << "Your hat size is:\n"<<final_hat<<" \n";
+        cout << "Your jacket size is:\n"<<final_jacket<<" inches. \n";
+        cout << "Your waist size is:\n"<<final_waist<<" inches. \n";
+        cout << "Would you like to go again? Type y for yes, or any other key to exit.\n";
+        cin >> again_response;
+        if (again_response == 'y') { go_again = true;}
+    return 0;
+    }}
+int hat_size(int weight, int height) {
+    return ((weight / height) * HAT_CALC);
+;
+}
+int jacket_size(int height, int wieght, int age){
+    
+ return ((height*weight) / JACKET_DIVIDER) + JACKET_ADJUSTOR * (age - JACKET_SUBTRACTOR);
+}
+int waist_size(int height, int wieght, int age){
+    
+    return (weight / WAIST_DIVIDER) + (WAIST_ADJUSTOR * ((age - WAIST_SUBTRACTOR) / WAIST_FINAL_DIVIDE));
+}
+
+/* Sample Output:
+ Please input your age.
+ 23
+ Please input your weight in pounds
+ 145
+ Please input your height in inches
+ 75
+ Your hat size is:
+ 2
+ Your jacket size is:
+ 37 inches.
+ Your waist size is:
+ 25 inches.
+ Would you like to go again? Type y for yes, or any other key to exit.
+ n
