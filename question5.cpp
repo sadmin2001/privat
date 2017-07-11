@@ -2,7 +2,7 @@
 //  Chapter 4 assignment page 249.cpp
 //  Chapter 4 page 249 problem 5
 //
-//  Created by Kody on 7/10/17.
+//  Created by Sadmin on 7/10/17.
 //  Copyright © 2017 Probe Team. All rights reserved.
 //
 
